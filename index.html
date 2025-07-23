@@ -1,0 +1,1607 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakshya Academy Unai - Shaping the Future of Science Students</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200px 0;
+            }
+            100% {
+                background-position: calc(200px + 100%) 0;
+            }
+        }
+
+        /* Container for consistent width */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #003366 0%, #004d99 50%, #0066cc 100%);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .header-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            animation: fadeInUp 1s ease-out;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease-out;
+            flex-wrap: wrap;
+        }
+
+        .academy-logo {
+            width: 120px;
+            height: 120px;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+            flex-shrink: 0;
+        }
+
+        .academy-logo:hover {
+            animation: float 3s ease-in-out infinite, pulse 1.5s ease-in-out infinite;
+        }
+
+        .logo-text h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .logo-text p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        nav li {
+            animation: bounceIn 0.6s ease-out calc(0.8s + var(--delay, 0s)) both;
+        }
+
+        nav li:nth-child(1) { --delay: 0.1s; }
+        nav li:nth-child(2) { --delay: 0.2s; }
+        nav li:nth-child(3) { --delay: 0.3s; }
+        nav li:nth-child(4) { --delay: 0.4s; }
+        nav li:nth-child(5) { --delay: 0.5s; }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        nav a:hover::before {
+            left: 100%;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        section:nth-child(even) {
+            background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+        }
+
+        section:nth-child(odd) {
+            background: linear-gradient(135deg, #e8f4f8 0%, #f0f8ff 100%);
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 2s ease;
+        }
+
+        section:hover::before {
+            transform: translateX(100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #003366;
+            margin-bottom: 3rem;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #003366, #0066cc);
+            transform: translateX(-50%);
+            animation: expandWidth 1s ease-out 0.5s both;
+        }
+
+        @keyframes expandWidth {
+            to {
+                width: 80px;
+            }
+        }
+
+        /* Branches Section */
+        .branches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .branch-card {
+            background: linear-gradient(135deg, white 0%, #f8fdff 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 51, 102, 0.1);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 51, 102, 0.1);
+            animation: slideInLeft 0.6s ease-out calc(0.2s * var(--index, 0)) both;
+        }
+
+        .branch-card:nth-child(1) { --index: 1; }
+        .branch-card:nth-child(2) { --index: 2; }
+        .branch-card:nth-child(3) { --index: 3; }
+
+        .branch-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 51, 102, 0.05), transparent);
+            transform: translateX(-100%) rotate(45deg);
+            transition: transform 0.6s ease;
+        }
+
+        .branch-card:hover::before {
+            transform: translateX(100%) rotate(45deg);
+        }
+
+        .branch-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 0 20px 40px rgba(0, 51, 102, 0.2);
+            border-color: #003366;
+        }
+
+        .branch-card h3 {
+            color: #003366;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+            transition: color 0.3s ease;
+        }
+
+        .branch-card:hover h3 {
+            color: #0066cc;
+            transform: scale(1.05);
+        }
+
+        .branch-card p {
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .branch-card:hover p {
+            transform: translateY(-2px);
+        }
+
+        /* Classes Section */
+        .classes-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .classes-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .standard-card {
+            background: linear-gradient(135deg, white 0%, #f8fdff 100%);
+            border: 3px solid #4a90a4;
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            animation: slideInRight 0.8s ease-out calc(0.3s * var(--card-index, 0)) both;
+        }
+
+        .standard-card:nth-child(1) { --card-index: 1; }
+        .standard-card:nth-child(2) { --card-index: 2; }
+
+        .standard-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(74, 144, 164, 0.1), transparent);
+            transform: rotate(0deg);
+            transition: transform 1s ease;
+        }
+
+        .standard-card:hover::before {
+            transform: rotate(360deg);
+        }
+
+        .standard-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: #003366;
+            box-shadow: 0 15px 35px rgba(74, 144, 164, 0.3);
+        }
+
+        .standard-card h3 {
+            color: #003366;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .standard-card:hover h3 {
+            color: #0066cc;
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        .standard-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .standard-card:hover p {
+            color: #003366;
+            transform: translateY(-2px);
+        }
+
+        .standard-card ul {
+            list-style: none;
+            padding: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .standard-card li {
+            color: #555;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out calc(0.1s * var(--li-index, 0)) both;
+        }
+
+        .standard-card li:nth-child(1) { --li-index: 1; }
+        .standard-card li:nth-child(2) { --li-index: 2; }
+        .standard-card li:nth-child(3) { --li-index: 3; }
+        .standard-card li:nth-child(4) { --li-index: 4; }
+
+        .standard-card:hover li {
+            color: #003366;
+            transform: translateX(5px);
+        }
+
+        .standard-card li::before {
+            content: "✓";
+            color: #4a90a4;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            transition: all 0.3s ease;
+        }
+
+        .standard-card:hover li::before {
+            color: #0066cc;
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .science-11-12-card {
+            background: linear-gradient(135deg, #003366 0%, #004d99 100%);
+            color: white;
+            grid-column: 1 / -1;
+            padding: 2.5rem;
+            margin: 2rem 0;
+        }
+
+        .science-11-12-card {
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .science-11-12-card:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 25px 50px rgba(0, 51, 102, 0.4);
+        }
+
+        .science-11-12-card h3 {
+            color: white;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .science-11-12-card:hover h3 {
+            transform: translateY(-3px) scale(1.05);
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .science-11-12-card p {
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .science-11-12-card:hover p {
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .subject-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            animation: slideInUp 0.6s ease-out calc(0.2s * var(--subject-index, 0)) both;
+        }
+
+        .subject-item:nth-child(1) { --subject-index: 1; }
+        .subject-item:nth-child(2) { --subject-index: 2; }
+        .subject-item:nth-child(3) { --subject-index: 3; }
+        .subject-item:nth-child(4) { --subject-index: 4; }
+
+        .subject-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .subject-item:hover::before {
+            left: 100%;
+        }
+
+        .subject-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .subject-item h4 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .subject-item:hover h4 {
+            transform: translateY(-2px) scale(1.1);
+            text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+
+        .subject-item p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            margin: 0;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .subject-item:hover p {
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .neet-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .neet-card {
+            background: white;
+            border: 3px solid #4a90a4;
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .neet-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neet-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(74, 144, 164, 0.1), transparent);
+            transform: rotate(0deg);
+            transition: transform 1s ease;
+        }
+
+        .neet-card:hover::before {
+            transform: rotate(360deg);
+        }
+
+        .neet-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            border-color: #003366;
+            box-shadow: 0 20px 40px rgba(74, 144, 164, 0.3);
+        }
+
+        .neet-card h3 {
+            color: #003366;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .neet-card:hover h3 {
+            color: #0066cc;
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        .neet-card p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .neet-card:hover p {
+            color: #003366;
+            transform: translateY(-2px);
+        }
+
+        .neet-card ul {
+            position: relative;
+            z-index: 2;
+        }
+
+        .neet-card li {
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out calc(0.1s * var(--neet-li-index, 0)) both;
+        }
+
+        .neet-card li:nth-child(1) { --neet-li-index: 1; }
+        .neet-card li:nth-child(2) { --neet-li-index: 2; }
+        .neet-card li:nth-child(3) { --neet-li-index: 3; }
+        .neet-card li:nth-child(4) { --neet-li-index: 4; }
+        .neet-card li:nth-child(5) { --neet-li-index: 5; }
+        .neet-card li:nth-child(6) { --neet-li-index: 6; }
+
+        .neet-card:hover li {
+            color: #003366;
+            transform: translateX(5px);
+        }
+
+        .neet-card li::before {
+            transition: all 0.3s ease;
+        }
+
+        .neet-card:hover li::before {
+            color: #0066cc;
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        /* Registration Form */
+        .registration-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, white 0%, #f8fdff 100%);
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0, 51, 102, 0.15);
+            border: 1px solid rgba(0, 51, 102, 0.1);
+            animation: bounceIn 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .registration-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 51, 102, 0.02), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .registration-form:hover::before {
+            transform: translateX(100%);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+            animation: fadeInUp 0.6s ease-out calc(0.1s * var(--form-index, 0)) both;
+        }
+
+        .form-group:nth-child(1) { --form-index: 1; }
+        .form-group:nth-child(2) { --form-index: 2; }
+        .form-group:nth-child(3) { --form-index: 3; }
+        .form-group:nth-child(4) { --form-index: 4; }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #003366;
+            transition: color 0.3s ease;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1.2rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: linear-gradient(135deg, white 0%, #f8fdff 100%);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #003366;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 51, 102, 0.15);
+        }
+
+        .form-group input:focus + label,
+        .form-group select:focus + label {
+            color: #0066cc;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+            color: white;
+            padding: 1.2rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            animation: pulse 2s infinite alternate;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #004d99 0%, #0080ff 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 51, 102, 0.3);
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+
+
+
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: linear-gradient(135deg, white 0%, #f8fdff 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 51, 102, 0.1);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0, 51, 102, 0.1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out calc(0.2s * var(--contact-index, 0)) both;
+        }
+
+        .contact-item:nth-child(1) { --contact-index: 1; }
+        .contact-item:nth-child(2) { --contact-index: 2; }
+        .contact-item:nth-child(3) { --contact-index: 3; }
+
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(0, 51, 102, 0.1) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            transition: all 0.5s ease;
+        }
+
+        .contact-item:hover::before {
+            width: 200%;
+            height: 200%;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 51, 102, 0.2);
+            border-color: #003366;
+        }
+
+        .contact-item h3 {
+            color: #003366;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-item:hover h3 {
+            color: #0066cc;
+            transform: scale(1.1);
+        }
+
+        .contact-item p {
+            color: #666;
+            font-size: 1.1rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover p {
+            color: #003366;
+            transform: translateY(-2px);
+        }
+
+        /* Student Reviews Section */
+        .reviews-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .review-card {
+            background: linear-gradient(135deg, white 0%, #f8fdff 100%);
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 51, 102, 0.12);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(0, 51, 102, 0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: slideInUp 0.8s ease-out calc(0.3s * var(--review-index, 0)) both;
+            transform-origin: bottom center;
+        }
+
+        .review-card:nth-child(1) { --review-index: 1; }
+        .review-card:nth-child(2) { --review-index: 2; }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .review-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(0, 102, 204, 0.1), transparent, rgba(0, 51, 102, 0.05), transparent);
+            transform: rotate(0deg);
+            transition: transform 2s ease;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .review-card:hover::before {
+            animation-duration: 2s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 51, 102, 0.2);
+            border-color: #003366;
+        }
+
+        .quote-icon {
+            font-size: 3rem;
+            color: #0066cc;
+            opacity: 0.3;
+            position: absolute;
+            top: 1.5rem;
+            left: 2rem;
+            z-index: 1;
+            animation: pulse 2s ease-in-out infinite alternate;
+        }
+
+        .review-content {
+            position: relative;
+            z-index: 2;
+            margin-top: 2rem;
+        }
+
+        .review-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #444;
+            font-style: italic;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .review-text::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #003366, #0066cc);
+            border-radius: 2px;
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.5s ease;
+        }
+
+        .review-card:hover .review-text::before {
+            transform: scaleY(1);
+        }
+
+        .review-card:hover .review-text {
+            color: #003366;
+            transform: translateX(5px);
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .reviewer-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #003366, #0066cc);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 51, 102, 0.3);
+        }
+
+        .review-card:hover .reviewer-avatar {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(0, 51, 102, 0.4);
+        }
+
+        .reviewer-details h4 {
+            color: #003366;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .reviewer-details p {
+            color: #666;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover .reviewer-details h4 {
+            color: #0066cc;
+            transform: translateX(5px);
+        }
+
+        .review-card:hover .reviewer-details p {
+            color: #003366;
+            transform: translateX(5px);
+        }
+
+        .stars {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            z-index: 2;
+        }
+
+        .star {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin: 0 2px;
+            display: inline-block;
+            animation: sparkle 1.5s ease-in-out infinite alternate;
+            animation-delay: calc(0.1s * var(--star-index, 0));
+        }
+
+        .star:nth-child(1) { --star-index: 1; }
+        .star:nth-child(2) { --star-index: 2; }
+        .star:nth-child(3) { --star-index: 3; }
+        .star:nth-child(4) { --star-index: 4; }
+        .star:nth-child(5) { --star-index: 5; }
+
+        @keyframes sparkle {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, #003366 0%, #004d99 50%, #0066cc 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 4s infinite;
+        }
+
+        footer p {
+            font-size: 1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 0.8s ease-out;
+            transition: opacity 0.3s ease;
+        }
+
+        footer:hover p {
+            opacity: 1;
+        }
+
+        /* Floating Animation for Better Visual Appeal */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .branch-card:nth-child(odd) {
+            animation: slideInLeft 0.6s ease-out calc(0.2s * var(--index, 0)) both, 
+                       float 3s ease-in-out infinite calc(1s * var(--index, 0));
+        }
+
+        .branch-card:nth-child(even) {
+            animation: slideInLeft 0.6s ease-out calc(0.2s * var(--index, 0)) both, 
+                       float 3s ease-in-out infinite calc(1.5s + 1s * var(--index, 0));
+        }
+
+        /* Reduce animations on smaller screens for better performance */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .logo-container {
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .academy-logo {
+                width: 80px;
+                height: 80px;
+            }
+
+            .logo-text h1 {
+                font-size: 2rem;
+            }
+
+            .logo-text p {
+                font-size: 1rem;
+            }
+
+            nav {
+                animation-delay: 0.4s;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav a {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .registration-form {
+                padding: 2rem;
+            }
+
+            .branches-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .classes-row,
+            .neet-section {
+                grid-template-columns: 1fr;
+            }
+
+            .subjects-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .review-card {
+                padding: 2rem;
+            }
+
+            /* Reduce transform effects on mobile for better performance */
+            .branch-card:hover,
+            .standard-card:hover,
+            .contact-item:hover {
+                transform: translateY(-5px) scale(1.01);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .academy-logo {
+                width: 70px;
+                height: 70px;
+            }
+
+            .logo-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .logo-text p {
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .registration-form {
+                padding: 1.5rem;
+            }
+
+            .branch-card,
+            .standard-card,
+            .neet-card,
+            .contact-item,
+            .review-card {
+                padding: 1.5rem;
+            }
+
+            .subjects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .science-11-12-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <svg class="academy-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Atomic structure logo -->
+                        <!-- Central nucleus with sun-like design -->
+                        <g transform="translate(100,100)">
+                            <!-- Central hexagon -->
+                            <polygon points="-15,-26 15,-26 30,0 15,26 -15,26 -30,0" 
+                                     fill="white" stroke="#00d084" stroke-width="2"/>
+                            <!-- Central sun -->
+                            <circle cx="0" cy="0" r="12" fill="#ffb84d"/>
+                            <!-- Sun rays -->
+                            <g stroke="#ffb84d" stroke-width="2">
+                                <line x1="0" y1="-18" x2="0" y2="-22"/>
+                                <line x1="12.7" y1="-12.7" x2="15.6" y2="-15.6"/>
+                                <line x1="18" y1="0" x2="22" y2="0"/>
+                                <line x1="12.7" y1="12.7" x2="15.6" y2="15.6"/>
+                                <line x1="0" y1="18" x2="0" y2="22"/>
+                                <line x1="-12.7" y1="12.7" x2="-15.6" y2="15.6"/>
+                                <line x1="-18" y1="0" x2="-22" y2="0"/>
+                                <line x1="-12.7" y1="-12.7" x2="-15.6" y2="-15.6"/>
+                            </g>
+                            
+                            <!-- Electron orbits -->
+                            <ellipse cx="0" cy="0" rx="70" ry="25" fill="none" stroke="#00d084" stroke-width="3"/>
+                            <ellipse cx="0" cy="0" rx="70" ry="25" fill="none" stroke="#00d084" stroke-width="3" 
+                                     transform="rotate(60)"/>
+                            <ellipse cx="0" cy="0" rx="70" ry="25" fill="none" stroke="#00d084" stroke-width="3" 
+                                     transform="rotate(120)"/>
+                            
+                            <!-- Electrons -->
+                            <circle cx="-70" cy="0" r="8" fill="#ffb84d">
+                                <circle cx="0" cy="0" r="3" fill="#d4006a"/>
+                                <animateTransform attributeName="transform" type="rotate" 
+                                                values="0 0 0;360 0 0" dur="4s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="35" cy="60.6" r="8" fill="#ffb84d" transform="rotate(60)">
+                                <circle cx="0" cy="0" r="3" fill="#d4006a"/>
+                                <animateTransform attributeName="transform" type="rotate" 
+                                                values="60 0 0;420 0 0" dur="3s" repeatCount="indefinite"/>
+                            </circle>
+                        </g>
+                    </svg>
+                    <div class="logo-text">
+                        <h1>Lakshya Academy Unai</h1>
+                        <p>Here We Create Awakened Minds</p>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#branches">Branches</a></li>
+                        <li><a href="#classes">Classes</a></li>
+                        <li><a href="#reviews">Student Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Branches Section -->
+    <section id="branches">
+        <div class="container">
+            <h2 class="section-title">Our Branches</h2>
+            <div class="branches-grid">
+                <div class="branch-card">
+                    <h3>Unai – Main Branch</h3>
+                    <p>Our flagship location providing comprehensive education for science students with state-of-the-art facilities and experienced faculty.</p>
+                </div>
+                <div class="branch-card">
+                    <h3>Vansda Branch</h3>
+                    <p>Expanding our reach to serve students in Vansda with the same quality education and personalized attention that defines Lakshya Academy.</p>
+                </div>
+                <div class="branch-card">
+                    <h3>Vyara</h3>
+                    <p>Our newest branch in Vyara providing quality education with experienced faculty and comprehensive learning environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes Section -->
+    <section id="classes">
+        <div class="container">
+            <h2 class="section-title">Classes Offered</h2>
+            <div class="classes-container">
+                <!-- Standard 9 and 10 Row -->
+                <div class="classes-row">
+                    <div class="standard-card">
+                        <h3>Standard 9</h3>
+                        <p>Foundation building for science subjects with comprehensive curriculum coverage.</p>
+                        <ul>
+                            <li>Science Fundamentals</li>
+                            <li>Mathematics</li>
+                            <li>Practical Sessions</li>
+                            <li>Regular Assessments</li>
+                        </ul>
+                    </div>
+                    <div class="standard-card">
+                        <h3>Standard 10</h3>
+                        <p>Board exam preparation with intensive practice and concept strengthening.</p>
+                        <ul>
+                            <li>Science & Technology</li>
+                            <li>Mathematics</li>
+                            <li>Board Exam Prep</li>
+                            <li>Mock Tests</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Standard 11-12 Science Card -->
+                <div class="science-11-12-card">
+                    <h3>Standard 11-12 Science</h3>
+                    <p>Specialized science stream education preparing students for competitive exams.</p>
+                    <div class="subjects-grid">
+                        <div class="subject-item">
+                            <h4>Physics</h4>
+                            <p>Mechanics, Thermodynamics, Optics, Modern Physics</p>
+                        </div>
+                        <div class="subject-item">
+                            <h4>Chemistry</h4>
+                            <p>Organic, Inorganic, Physical Chemistry</p>
+                        </div>
+                        <div class="subject-item">
+                            <h4>Biology</h4>
+                            <p>Botany, Zoology, Human Physiology</p>
+                        </div>
+                        <div class="subject-item">
+                            <h4>Mathematics</h4>
+                            <p>Calculus, Algebra, Coordinate Geometry</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEET Preparation Section -->
+                <div class="neet-section">
+                    <div class="neet-card">
+                        <h3>NEET Dropper Batch</h3>
+                        <p>Comprehensive coaching program designed for students preparing to retake NEET with comprehensive study plan.</p>
+                        <ul>
+                            <li>Physics - Advanced Problem Solving</li>
+                            <li>Chemistry - Complete Syllabus Coverage</li>
+                            <li>Biology - In-depth Concepts</li>
+                            <li>Mock Tests & Practice Sessions</li>
+                            <li>Previous Year Papers Analysis</li>
+                            <li>Doubt Clearing Sessions</li>
+                        </ul>
+                    </div>
+                    <div class="neet-card">
+                        <h3>NEET Regular Batch</h3>
+                        <p>Regular coaching program for 11th and 12th students preparing for NEET alongside board exams.</p>
+                        <ul>
+                            <li>Physics - Conceptual Learning</li>
+                            <li>Chemistry - Theory & Practical</li>
+                            <li>Biology - Comprehensive Study</li>
+                            <li>Board Exam Preparation</li>
+                            <li>Regular Assessments</li>
+                            <li>Study Material Provided</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section id="registration">
+        <div class="container">
+            <h2 class="section-title">Register Now</h2>
+            <form class="registration-form">
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" required>
+                </div>
+                <div class="form-group">
+                    <label for="class">Class</label>
+                    <select id="class" name="class" required>
+                        <option value="" disabled selected>Select your class</option>
+                        <option value="9">Standard 9</option>
+                        <option value="10">Standard 10</option>
+                        <option value="11">Standard 11</option>
+                        <option value="12">Standard 12</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="branch">Branch</label>
+                    <select id="branch" name="branch" required>
+                        <option value="" disabled selected>Select your preferred branch</option>
+                        <option value="unai">Unai</option>
+                        <option value="vansda">Vansda</option>
+                        <option value="vyara">Vyara</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mobile">Mobile Number</label>
+                    <input type="tel" id="mobile" name="mobile" required>
+                </div>
+                <button type="submit" class="submit-btn">Submit Registration</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Student Reviews Section -->
+    <section id="reviews">
+        <div class="container">
+            <h2 class="section-title">Student Reviews</h2>
+            <div class="reviews-container">
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="quote-icon">"</div>
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <div class="review-content">
+                            <p class="review-text">
+                                Lakshya Academy has completely transformed my understanding of science subjects. The teachers here explain complex physics and chemistry concepts in such a simple way that even difficult topics become easy to grasp. The regular mock tests and doubt-clearing sessions have boosted my confidence tremendously. I highly recommend this academy to all science students!
+                            </p>
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">V</div>
+                                <div class="reviewer-details">
+                                    <h4>Vivan Patel</h4>
+                                    <p>Standard 12 Science Student</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="quote-icon">"</div>
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <div class="review-content">
+                            <p class="review-text">
+                                The teaching methodology at Lakshya Academy is outstanding. Teachers give individual attention to each student and make sure everyone understands the concepts clearly. The mathematics classes are excellent with comprehensive study material and regular practice sessions. Thanks to this academy, I have improved significantly in my board exam preparation and mathematical problem-solving skills.
+                            </p>
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">N</div>
+                                <div class="reviewer-details">
+                                    <h4>Naitik Patel</h4>
+                                    <p>Standard 12 Science Student of Maths</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Phone</h3>
+                    <p>+91 9313400529</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p>patelnaitik7838@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Location</h3>
+                    <p>Unai, Vansda & Vyara, Gujarat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Lakshya Academy Unai. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
